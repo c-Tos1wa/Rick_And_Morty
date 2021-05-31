@@ -1,0 +1,88 @@
+html {
+  background-color: beige;
+}
+
+a {
+  text-decoration: none;
+}
+
+.lista{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.personagem {
+  padding: 10px 0px;
+  border-radius: 20px;
+  background-color: silver;
+  margin-bottom: 30px;
+  transition: 0.5s;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.personagem:hover{
+  background-color: grey;
+  cursor: pointer;
+  margin-left: -10px;
+}
+
+.personagem img{
+  width: 70%;
+  border-radius: 300px;
+  padding: 20px 10px;
+}
+
+.caracteristicas{
+  margin: 0 35px;
+}
+
+.nome{
+  color: black;
+}
+
+.especie{
+  color: black;
+}
+
+div.Alive {
+  color: green;
+  font-weight: bold;
+  margin-top: -10px;
+}
+
+div.Dead {
+  color: red;
+  font-weight: bold;
+  margin-top: -10px;
+}
+
+.status {
+  display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.status img {
+  border-radius: 300px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.situacao .botao a{
+  background-color: chartreuse;
+  color: black;
+  margin-top: 10px 0;
+  padding: 10px 20px;
+  transition: 0.5s;
+} 
+ 
+.situacao .botao a:hover {
+  background-color: rgb(3, 184, 184);
+  margin-left: -5px;
+}
