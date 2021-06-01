@@ -1,32 +1,50 @@
+import React from 'react';
 import { Link } from 'react-router-dom'
 
-function Card(props){
-    let classeCss = 'Alive';
-    if (props.status === 'Alive'){
-        classeCss = 'Alive'
-    }else{
-        classeCss = 'Dead'
+class Card extends React.Component {
+    constructor (props){
+        super(props);
+        this.state = {
+            personagem: {}
+        }
     }
-    return(
-        <Link to='/info/65'>
-            <div className='personagem'>
-                <div className='imagem'>
-                    <img src='https://rickandmortyapi.com/api/character/avatar/65.jpeg' alt='Chris' />
+    render(){
+        const personagem = this.state.personagem;
+        
+        let classeCss = 'Alive';
+        if (personagem.status === 'Alive'){
+            classeCss = 'Alive'
+        } else{
+            classeCss = 'Dead'
+        }
+
+        return(
+            <Link to={`/detalhes/${personagem.id}`}>
+                <div className='personagem'>
+                    <div className='imagem'>
+                        <img src={personagem.imagem} alt={personagem.nome} />
+                    </div>
+                    <div className='caracteristicas'>
+                        <div className='nome'>
+                            <h2>{personagem.nome}</h2>
+                        </div>
+                        <div className={classeCss}>
+                            <p>{`Status: ${personagem.status}`}</p>
+                        </div>
+                        <div className='especie'>
+                            <p>{`Especie: ${personagem.especie}`}</p>
+                        </div>
+                    </div>
                 </div>
-                <div className='caracteristicas'>
-                    <div className='nome'>
-                        <h2>Chris</h2>
-                    </div>
-                    <div className={classeCss}>
-                        <p>Status: Alive</p>
-                    </div>
-                    <div className='especie'>
-                        <p>Especie: Humanoid</p>
-                    </div>
-                </div>
-            </div>
-        </Link>
-    )
+            </Link>
+        );
+    }
+
+    componentDidMount(){
+        this.setState({
+            personagem: this.props.personagem 
+        })
+    }
 }
 
 export default Card
