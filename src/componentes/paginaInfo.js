@@ -7,90 +7,68 @@ class Status extends React.Component{
         this.id = parseInt(props.match.params.id);
 
         this.state = {
-            personagem: {
-                'id': 0,
-                'nome': '',
-                'status': "",
-                'especie': "",
-                'última localização conhecida': "",
-                'episodio': ""
-            }
+            isLoaded: false,
+            personagem: {}
         }
-
-        this.personagens = {
-            255: {
-                'id': 255,
-                'nome': "Orthodox Jew",
-                'imagem': "https://rickandmortyapi.com/api/character/avatar/255.jpeg",
-                'status': "Alive",
-                'especie': "Human",
-                'localizacao': "Earth(Replacement Dimension)",
-                'episodio': "Get Schwifty"
-                },
-
-            165:{
-                'id': 165,
-                    'nome': "Investigator Rick",
-                    'imagem': "https://rickandmortyapi.com/api/character/avatar/165.jpeg",
-                    'status': "Dead",
-                    'especie': "Human",
-                    'localizacao': "Citadel of Ricks",
-                    'episodio': "The Ricklantis Mixup"
-                },
-            
-            210: {
-                'id': 210,
-                'nome': "Lucy",
-                'imagem': "https://rickandmortyapi.com/api/character/avatar/210.jpeg",
-                'status': "Dead",
-                'especie': "Human",
-                'localizacao': "Earth(Replacement Dimension)",
-                'episodio': "Ricksy Business"
-                },
-                
-            224: {
-                'id': 224,
-                'nome': "Michael McLick",
-                'imagem': "https://rickandmortyapi.com/api/character/avatar/224.jpeg",
-                'status': "Alive",
-                'especie': "Human",
-                'localizacao': "Interdimensional Cable",
-                'espisodio': "Interdimensional Cable 2: Tempting Fate"
-                }
-            }
     }
 
 
-    render(){
+    /*listaEpisodes () {
         const personagem = this.state.personagem;
-        return(
-            <div className='status'>
-                <div className='imagem'>
-                    <img src={personagem.imagem} alt={personagem.nome} />
+        return personagem.episode.map(episode => {
+            const episodio = episode.episode;
+            return (
+                <div className='episodio' key='episodio.id'>
+                    {episodio}
                 </div>
-                <div className='situacao'>
-                    <div className='nome'>
-                        <strong>{personagem.nome}</strong>
-                        <p><strong>Status:</strong> {personagem.status}</p>
-                        <p><strong>Espécie:</strong> {personagem.especie}</p>
-                        <p><strong>Última Localização Conhecida:</strong> {personagem.localizacao}</p>
-                        <p><strong>Episódio:</strong> {personagem.episodio}</p>
+            )
+
+        })
+
+        
+    }*/
+
+    render(){
+        const {personagem, isLoaded} = this.state;
+
+        if (!isLoaded) {
+            return (
+                <div className='status'> Carregando...</div>
+            )
+        }
+        else {
+            return(
+                <div className='status'>
+                    <div className='imagem'>
+                        <img src={personagem.image} alt={personagem.name} />
                     </div>
-                    <div className='botao'>
-                        <Link to = '/'> Voltar! </Link>
-                    </div>
-                </div>    
-            </div>
-        );
+                    <div className='situacao'>
+                        <h3 className='nome'><strong>{personagem.name}</strong></h3>
+                        <div className='ficha'>
+                            <p><strong>Gênero: </strong>{personagem.gender}</p>
+                            <p><strong>Status:</strong> {personagem.status}</p>
+                            <p><strong>Espécie:</strong> {personagem.species}</p>
+                            <p><strong>Origem:</strong> {personagem.origin.name}</p>
+                            <p><strong>Última localização conhecida: </strong> {personagem.location.name}</p>
+                        </div>
+                        <div className='botao'>
+                            <Link to = '/'> Voltar! </Link>
+                        </div>
+                    </div>    
+                </div>
+            );
+        }
     }
 
     componentDidMount(){
-        let personagem = this.personagens[this.id];
-        if (personagem){
+       fetch(`https://rickandmortyapi.com/api/character/${this.id}`)
+       .then(resultado => resultado.json())
+       .then(resultadoJson => {
             this.setState({
-                personagem: personagem
-            })
-        }
+               personagem: resultadoJson,
+               isLoaded: true
+            });
+        });
     }
 }
 

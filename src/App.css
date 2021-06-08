@@ -6,27 +6,30 @@ a {
   text-decoration: none;
 }
 
+/* cardLIst*/
 .lista{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  text-align: center;
-  margin-top: 30px;
+  text-align: left;
+  margin-top: 20px;
 }
 
+/* card */
 .personagem {
   padding: 10px 0px;
   border-radius: 20px;
-  background-color: silver;
-  margin-bottom: 30px;
+  background-color: grey;
+  margin-bottom: 20px;
   transition: 0.5s;
   display: flex;
+  justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
 }
 
 .personagem:hover{
-  background-color: grey;
+  background-color: silver;
   cursor: pointer;
   margin-left: -10px;
 }
@@ -34,7 +37,12 @@ a {
 .personagem img{
   width: 70%;
   border-radius: 300px;
-  padding: 20px 10px;
+  padding: 20px 15px;
+  margin-left: 20px;
+}
+
+.personagem img:hover {
+  margin-top: -5px;
 }
 
 .caracteristicas{
@@ -47,10 +55,11 @@ a {
 
 .especie{
   color: black;
+  margin-top: -10px;
 }
 
 div.Alive {
-  color: green;
+  color: rgb(3, 114, 3);
   font-weight: bold;
   margin-top: -10px;
 }
@@ -61,12 +70,18 @@ div.Dead {
   margin-top: -10px;
 }
 
-.status {
-  display: flex;
-    justify-content: space-around;
-    align-items: center;
+div.Unknown {
+  color: blue;
+  font-weight: bold;
+  margin-top: -10px;  
 }
 
+/*paginaInfo*/
+.status {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
 
 .status img {
   border-radius: 300px;
@@ -74,15 +89,27 @@ div.Dead {
   margin-bottom: 20px;
 }
 
+.situacao .nome {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: rgb(192, 3, 192);
+  margin-top: 40px;
+}
+
+.situacao .ficha{
+  background-color:rgb(221, 126, 145);
+  padding: 5px;
+  border-radius: 5px;
+}
+
 .situacao .botao a{
   background-color: chartreuse;
   color: black;
-  margin-top: 10px 0;
+  margin-top: 20px 0;
   padding: 10px 20px;
   transition: 0.5s;
 } 
  
 .situacao .botao a:hover {
   background-color: rgb(3, 184, 184);
-  margin-left: -5px;
+  margin-left: -15px;
 }
