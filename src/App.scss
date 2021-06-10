@@ -1,0 +1,135 @@
+html {
+  background-color: beige;
+}
+
+a {
+  text-decoration: none;
+}
+
+@mixin status {
+    &--Alive {
+        color: green;
+        font-weight: bold;
+        margin-top: -10px;
+    }
+
+    &--Dead {
+        color: red;
+        font-weight: bold;
+        margin-top: -10px;
+    }
+
+    &--Unknown {
+        color: blue;
+        font-weight: bold;
+        margin-top: -10px;    
+    }
+}
+
+.lista-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.card__personagem {
+    padding: 10px 0px;
+    border-radius: 20px;
+    background-color: rgb(163, 162, 162);;
+    margin-bottom: 20px;
+    transition: 0.5s;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 1000px;    
+
+    &:hover {
+        cursor: pointer;
+        margin-left: -10px;
+    }
+
+    &__img {
+        width: 70%;
+        border-radius: 300px;
+        padding: 20px 15px;
+        margin-left: 20px;
+    }
+
+    &__caracateristicas {
+        margin: 0 35px;
+    }
+
+    &__nome {
+        color: black;
+    }
+
+    &__especie {
+        color:black;
+    }
+
+    &__status{
+        @include status;
+    }
+ 
+}
+
+.caixa {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+    &__input {
+        font-size: 1.3em;
+        border-radius: 5px;
+        background-color: ghostwhite;    
+    }
+}
+
+.info {
+    &__status {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        
+        &__img {
+            border-radius: 300px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    }
+
+
+    &__situacao {
+        &__nome {
+            color: black;
+        }
+
+        &__ficha {
+            background-color:rgb(221, 126, 145);
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+        }
+    }
+
+    &__botao {
+        background-color: chartreuse;
+        color: black;
+        margin-top: 10px 0;
+        padding: 10px 20px;
+        transition: 0.5s;
+
+        &:hover{
+            background-color: rgb(3, 184, 184);
+            margin-left: -15px;
+        }
+    }
+}
+
+
+
+
