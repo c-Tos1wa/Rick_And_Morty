@@ -11,7 +11,7 @@ class Card extends React.Component {
     }
 
     render(){
-        const {isLoaded, personagem} = this.state;
+        const { isLoaded, personagem } = this.state;
         
         let classeCss = 'Alive';
         if (personagem.status === 'Alive'){
@@ -31,19 +31,19 @@ class Card extends React.Component {
         else {
             return(
                 <Link to={`/detalhes/${personagem.id}`}>
-                    <div className='personagem'>
+                    <div className='card__personagem'>
                         <div className='imagem'>
-                            <img src={personagem.image} alt={personagem.name} />
+                            <img className='card__personagem__img' src={personagem.image} alt={personagem.name} />
                         </div>
-                        <div className='caracteristicas'>
-                            <div className='nome'>
-                                <h2>{personagem.name}</h2>
+                        <div className='card__personagem__caracteristicas'>
+                            <div className='card__personagem__nome'>
+                                <h2 className='card__personagem__nome'>{personagem.name}</h2>
                             </div>
-                            <div className={classeCss}>
+                            <div className={`card__personagem__status--${classeCss}`}>
                                 <p><strong>Status:</strong> {personagem.status}</p>
                             </div>
-                            <div className='especie'>
-                                <p><strong>Especie:</strong> {personagem.species}</p>
+                            <div className='card__personagem__especie'>
+                                <p><strong>Species:</strong> {personagem.species}</p>
                             </div>
                         </div>
                     </div>

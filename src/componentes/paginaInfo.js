@@ -38,21 +38,21 @@ class Status extends React.Component{
         }
         else {
             return(
-                <div className='status'>
-                    <div className='imagem'>
-                        <img src={personagem.image} alt={personagem.name} />
+                <div className='info__status'>
+                    <div className='info__status__img'>
+                        <img className='info__status__img' src={personagem.image} alt={personagem.name} />
                     </div>
-                    <div className='situacao'>
-                        <h3 className='nome'><strong>{personagem.name}</strong></h3>
-                        <div className='ficha'>
-                            <p><strong>Gênero: </strong>{personagem.gender}</p>
+                    <div className='info__situacao'>
+                        <h3 className='info__situacao__nome'><strong>{personagem.name}</strong></h3>
+                        <div className='info__situacao__ficha'>
+                            <p><strong>Gender: </strong>{personagem.gender}</p>
                             <p><strong>Status:</strong> {personagem.status}</p>
-                            <p><strong>Espécie:</strong> {personagem.species}</p>
-                            <p><strong>Origem:</strong> {personagem.origin.name}</p>
-                            <p><strong>Última localização conhecida: </strong> {personagem.location.name}</p>
+                            <p><strong>Species:</strong> {personagem.species}</p>
+                            <p><strong>Origin:</strong> {personagem.origin.name}</p>
+                            <p><strong>Last Known Location: </strong> {personagem.location.name}</p>
                         </div>
                         <div className='botao'>
-                            <Link to = '/'> Voltar! </Link>
+                            <Link className='info__botao' to = '/'> Voltar! </Link>
                         </div>
                     </div>    
                 </div>
