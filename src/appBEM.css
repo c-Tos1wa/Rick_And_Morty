@@ -1,0 +1,124 @@
+html {
+  background-color: beige;
+}
+
+a {
+  text-decoration: none;
+}
+
+.lista-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.card__personagem {
+  padding: 10px 0px;
+  border-radius: 20px;
+  background-color: rgb(163, 162, 162);
+  margin-bottom: 20px;
+  transition: 0.5s;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 1000px;    
+}
+
+.card__personagem:hover {
+  cursor: pointer;
+  margin-left: -10px;
+}
+
+.card__personagem__img {
+  width: 70%;
+  border-radius: 300px;
+  padding: 20px 15px;
+  margin-left: 20px;
+}
+
+.card__personagem__caracteristicas {
+  margin: 0 35px; 
+}
+
+.card__personagem__nome {
+  color: black;
+}
+
+.card__personagem__status--Alive {
+  color: green;
+  font-weight: bold;
+  margin-top: -10px;
+}
+
+.card__personagem__status--Unknown {
+  color: blue;
+  font-weight: bold;
+  margin-top: -10px;  
+}
+
+.card__personagem__status--Dead {
+  color: red;
+  font-weight: bold;
+  margin-top: -10px;  
+}
+
+.card__personagem__especie {
+  color: black;  
+}
+
+.caixa {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.caixa__input {
+  font-size: 1.3em;
+  border-radius: 5px;
+  background-color: ghostwhite;
+}
+
+.info__status {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.info__status__img {
+  border-radius: 300px;
+  margin-top: 20px;
+  margin-bottom: 20px;  
+}
+
+
+.info__situacao__nome {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: rgb(192, 3, 192);
+}
+
+.info__situacao__ficha {
+  background-color:rgb(221, 126, 145);
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.info__botao {
+  background-color: chartreuse;
+  color: black;
+  margin-top: 10px 0;
+  padding: 10px 20px;
+  transition: 0.5s;  
+}
+
+.info__botao:hover {
+  background-color: rgb(3, 184, 184);
+  margin-left: -15px;  
+}
+
+
+

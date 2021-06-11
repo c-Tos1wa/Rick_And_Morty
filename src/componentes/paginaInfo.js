@@ -42,6 +42,7 @@ class Status extends React.Component{
                     <div className='info__status__img'>
                         <img className='info__status__img' src={personagem.image} alt={personagem.name} />
                     </div>
+                    
                     <div className='info__situacao'>
             
                         <h3 className='info__situacao__nome'>

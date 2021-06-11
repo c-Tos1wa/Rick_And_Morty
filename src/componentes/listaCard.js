@@ -7,7 +7,8 @@ class Lista extends React.Component{
         super(props);
         this.state = {
             isLoaded: false,
-            personagens: []
+            personagens: [],
+            pagina: 1
         };
     }
 
@@ -17,17 +18,33 @@ class Lista extends React.Component{
         });
     }
     
+    listarPersonagens () {
+        const pagina = this.state.pagina; 
+        let proxima = pagina + 1;
+        const novos = this.state.personagens; 
+
+        fetch(`https://rickandmortyapi.com/api/character/?page=${proxima}`)
+        .then(proxima => proxima.json())
+        .then(proximaJson => {
+            this.setState({
+                pagina: proxima,
+                personagens: novos.concat(proximaJson.results)
+            })
+        })
+    }
     
     buscarPersonas(evento) {
-        const nomePersona = evento.target.value.toLowerCase();
-              
-        fetch(`https://rickandmortyapi.com/api/character/?name=${nomePersona}`)
-        .then(resultado => resultado.json())
-        .then(resultadoJson => {
-            this.setState({
-                personagens: resultadoJson.results 
-            });
-        })    
+        const nomePersona = evento.target.value;
+
+        if (evento.key === 'Enter') {
+            fetch(`https://rickandmortyapi.com/api/character/?name=${nomePersona}`)
+            .then(resultado => resultado.json())
+            .then(resultadoJson => {
+                this.setState({
+                    personagens: resultadoJson.results 
+                });
+            })    
+        } 
     }
     
     render(){
@@ -47,16 +64,15 @@ class Lista extends React.Component{
                     <div className ='lista-card'>
                         {this.adicionaPersonagens()}
                     </div>
-                    <button onClick={()=>this.listarPersonagens()}>
-                        Personagens
+                    <button className='lista-card__button' onClick={()=>this.listarPersonagens()}>
+                        Carregar Mais...
                     </button>
                 </div>
             );
         }
     }
     
-    
-    
+        
     componentDidMount () {
         fetch ('https://rickandmortyapi.com/api/character/')
         .then (resultado => resultado.json())

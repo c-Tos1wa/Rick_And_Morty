@@ -32,6 +32,17 @@ a {
     justify-content: space-evenly;
     text-align: left;
     margin-top: 20px;
+
+    &__button {
+        background-color: chartreuse;
+        border-radius: 20px; 
+        font-size: 1.2em;
+        margin-left: 90px;
+        
+        &:hover {
+            background-color: rgb(8, 241, 241);    
+        }
+    }
 }
 
 .card__personagem {
@@ -41,10 +52,10 @@ a {
     margin-bottom: 20px;
     transition: 0.5s;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-wrap: wrap;
     align-items: center;
-    width: 1000px;    
+    width: 900px;    
 
     &:hover {
         cursor: pointer;
@@ -58,7 +69,7 @@ a {
         margin-left: 20px;
     }
 
-    &__caracateristicas {
+    &__caracteristicas {
         margin: 0 35px;
     }
 
@@ -102,7 +113,6 @@ a {
         }
     }
 
-
     &__situacao {
         &__nome {
             color: black;
@@ -130,6 +140,150 @@ a {
     }
 }
 
+@media only screen and (max-width: 600px) {
+    html {
+        background-color: rgb(68, 79, 104);
+    }
+      
+    a {
+        text-decoration: none;
+    }
+      
+    @mixin status {
+        &--Alive {
+            color: green;
+            font-weight: bold;
+        }
+      
+        &--Dead {
+            color: red;
+            font-weight: bold;
+        }
+      
+        &--Unknown {
+            color: blue;
+            font-weight: bold;   
+        }
+      }
+      
+    .lista-card {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        text-align: left;
+        margin-top: 20px;
+        align-content: center;
+
+        &__button {
+            background-color: chartreuse;
+            border-radius: 20px; 
+            font-size: 20px;
+            margin-left: 30px;   
+        }
+    
+    }
+      
+    .card__personagem {
+        padding: 1px;
+        border-radius: 20px;
+        background-color: rgb(163, 162, 162);;
+        margin: 10px 35px;
+        transition: 0.5s;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        width: 400px;    
+      
+        &:hover {
+            cursor: pointer;
+            margin-left: -10px;
+        }
+      
+        &__img {
+            width: 70%;
+            border-radius: 200px;
+            padding: 15px 1px;
+        }
+      
+        &__caracteristicas {
+            margin: 0 5px;
+        }
+      
+        &__nome {
+            color: rgb(5, 5, 5);
+        }
+      
+        &__especie {
+            color:black;
+        }
+      
+        &__status{
+            @include status;
+        }
+       
+    }
+      
+    .caixa {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        flex-wrap: wrap;
+          
+        &__input {
+            font-size: 1em;
+            border-radius: 5px;
+            background-color: ghostwhite;    
+        }
+    }
+      
+    .info {
+        &__status {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: center;
+            align-content: center;
+              
+        &__img {
+            border-radius: 300px;
+            margin: 10px;
+            margin-bottom: 2px;
+            }
+        }
+      
+        &__situacao {
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            align-items: center;
+
+            &__nome {
+                color: black;
+            }
+      
+            &__ficha {
+                background-color:rgb(221, 126, 145);
+                padding: 1px;
+                border-radius: 5px;
+                width: 50%;
+            }
+        }
+      
+        &__botao {
+            background-color: chartreuse;
+            color: black;
+            margin-top: 10px 0;
+            padding: 10px 20px;
+            transition: 0.5s;
+      
+            &:hover{
+                background-color: rgb(3, 184, 184);
+                margin-left: -15px;
+            }
+        }
+    }
+}
 
 
 

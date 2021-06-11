@@ -6,7 +6,7 @@ class Buscar extends React.Component {
             <div className='caixa'>
                 <input type='text' className='caixa__input'
                     placeholder='Procurar personagens...'
-                    onChange={this.props.funcaoEncontrar} />
+                    onKeyPress={this.props.funcaoEncontrar} />
             </div>
         );
     }
